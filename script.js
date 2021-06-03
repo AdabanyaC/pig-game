@@ -7,6 +7,8 @@ const score0El = document.querySelector('#score--0');
 const score1El = document.querySelector('#score--1');
 const current0El = document.querySelector('#current--0');
 const current1El = document.querySelector('#current--1');
+const name0El = document.querySelector('#name--0');
+const name1El = document.querySelector('#name--1');
 
 const diceEl = document.querySelector('.dice');
 const btnNew = document.querySelector('.btn--new');
@@ -31,6 +33,8 @@ const init = () => {
   score1El.textContent = 0;
   current0El.textContent = 0;
   current1El.textContent = 0;
+  name0El.textContent = 'Player 1';
+  name1El.textContent = 'Player 2';
 
   diceEl.classList.add('hidden');
   player0El.classList.remove('player--winner');
@@ -81,7 +85,7 @@ btnHold.addEventListener('click', function () {
     document.querySelector(`#score--${activePlayer}`).textContent = totalScore;
 
     // Check if the player's score is >= 100
-    if (totalScore >= 10) {
+    if (totalScore >= 100) {
       // Finish the game
       playing = false;
       diceEl.classList.add('hidden');
@@ -90,7 +94,7 @@ btnHold.addEventListener('click', function () {
 
       document.querySelector(`#name--${activePlayer}`).textContent = `PLAYER ${
         activePlayer + 1
-      } WINS 🎉🎉🎉`;
+      } WINS 🎉`;
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--winner');
