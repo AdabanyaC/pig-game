@@ -81,12 +81,16 @@ btnHold.addEventListener('click', function () {
     document.querySelector(`#score--${activePlayer}`).textContent = totalScore;
 
     // Check if the player's score is >= 100
-    if (totalScore >= 100) {
+    if (totalScore >= 10) {
       // Finish the game
       playing = false;
       diceEl.classList.add('hidden');
       btnRoll.classList.add('hidden');
       btnHold.classList.add('hidden');
+
+      document.querySelector(`#name--${activePlayer}`).textContent = `PLAYER ${
+        activePlayer + 1
+      } WINS 🎉🎉🎉`;
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--winner');
